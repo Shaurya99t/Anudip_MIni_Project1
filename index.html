@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiktorious Weather</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">wiktorious</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="forcast.html">Forecast</a></li>
+                    <li class="nav-item"><a class="nav-link" href="map.html">Maps</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <header class="text-center mb-4">
+            <h1>Find Your Local Weather</h1>
+            <p class="lead">Enter a city name to get the current weather conditions and a map of the area.</p>
+        </header>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="search-box d-flex shadow-lg">
+                    <input type="text" id="cityInput" class="form-control" placeholder="E.g., Mumbai, Delhi, Bengaluru...">
+                    <button id="searchButton" class="btn">Search</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="welcomeSection" class="text-center mt-5">
+            <img src="mount.jpg" alt="Weather Illustration" class="img-fluid welcome-image">
+        </div>
+
+        <div id="weatherResult" class="row mt-5 g-4 justify-content-center d-none">
+            <div class="col-lg-5">
+                <div class="weather-card text-white shadow">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <div>
+                            <h2 id="cityName">City Name</h2>
+                            <p id="weatherDescription" class="mb-0">Weather Description</p>
+                        </div>
+                        <img id="weatherIcon" src="https://placehold.co/100x100/FFFFFF/333333?text=Icon" alt="Weather Icon">
+                    </div>
+                    <div class="card-body">
+                        <h1 id="temperature" class="display-3">0°C</h1>
+                        <div class="row text-center mt-4 weather-details-primary">
+                            <div class="col"><p class="mb-1">Humidity</p><strong id="humidity">0%</strong></div>
+                            <div class="col"><p class="mb-1">Wind Speed</p><strong id="windSpeed">0 km/h</strong></div>
+                            <div class="col"><p class="mb-1">Feels Like</p><strong id="feelsLike">0°C</strong></div>
+                        </div>
+                        <hr class="weather-divider">
+                        <div class="row text-center mt-3 weather-details-secondary">
+                             <div class="col"><p class="mb-1">Pressure</p><strong id="pressure">0 hPa</strong></div>
+                            <div class="col"><p class="mb-1">Visibility</p><strong id="visibility">0 km</strong></div>
+                            <div class="col"><p class="mb-1">Sunrise</p><strong id="sunrise">00:00</strong></div>
+                             <div class="col"><p class="mb-1">Sunset</p><strong id="sunset">00:00</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="map-card shadow">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-4 mt-auto">
+        <p>&copy; 2024 wiktorious. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
